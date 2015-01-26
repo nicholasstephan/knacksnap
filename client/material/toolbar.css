@@ -1,0 +1,25 @@
+.material-toolbar {
+  box-sizing:border-box;
+  height: 56px;
+}
+
+.material-toolbar-title {
+  padding:0 16px;
+  margin:0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 56px;
+}
+
+@media (min-width: 600px) {
+  .material-toolbar {
+    height: 64px;
+    padding:4px 8px;
+  }
+
+  .material-toolbar-title {
+    line-height: 64px;
+  }
+}
+
