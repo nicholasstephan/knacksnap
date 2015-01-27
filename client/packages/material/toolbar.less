@@ -1,6 +1,13 @@
+@import (reference) "./media-queries.less";
+
 .material-toolbar {
   box-sizing:border-box;
   height: 56px;
+
+  @media @device-medium {
+    height: 64px;
+    padding:4px 8px;
+  }
 }
 
 .material-toolbar-title {
@@ -10,16 +17,8 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 56px;
-}
 
-@media (min-width: 600px) {
-  .material-toolbar {
-    height: 64px;
-    padding:4px 8px;
-  }
-
-  .material-toolbar-title {
+  @media @device-medium {
     line-height: 64px;
   }
 }
-
