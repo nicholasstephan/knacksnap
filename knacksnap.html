@@ -1,0 +1,39 @@
+<head>
+  <title>Knack Snap</title>
+</head>
+
+<body>
+  {{>toolbar}}
+  {{>list}}
+</body>
+
+
+
+
+<template name="toolbar">
+  <header class="material-toolbar material-paper material-z-depth-2 ks-orange ks-toolbar ">
+    <span class="material-content-add ks-toolbar-action-add"></span>
+    <div class="ks-toolbar-search-field" contenteditable>Knack Snap</div>
+  </header>
+</template>
+
+
+<template name="list">
+  <div class="ks-list">
+    {{#each tasks}}
+      {{> task}}
+    {{/each}}
+  </div>
+</template>
+
+
+<template name="task">
+  <div class="material-paper material-rounded material-z-depth-1 ks-red ks-task">
+    <div class="ks-task-nav">
+      <span class="ks-task-remove material-action-delete"></span>
+    </div>
+    <div class="ks-task-value-wrapper">
+      <input class="ks-task-value" value="{{text}}"/>
+    </div>
+  </div>
+</template>
