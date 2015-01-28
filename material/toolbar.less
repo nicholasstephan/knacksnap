@@ -1,8 +1,21 @@
 @import (reference) "./media-queries.less";
 
+body {
+  padding-top:56px;
+
+  @media @device-medium {
+    padding-top: 64px;
+  }
+}
+
 .material-toolbar {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
   box-sizing:border-box;
   height: 56px;
+  padding:0px 8px;
 
   @media @device-medium {
     height: 64px;

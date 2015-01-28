@@ -3,15 +3,22 @@ var Tasks = new Mongo.Collection("tasks");
 
 if(Meteor.isClient) {
   
+
+  /* Toolbar */
+
   Template.toolbar.events({
     "click .ks-toolbar-action-add": function(e) {
       e.stopPropagation();
       Tasks.insert({
         text: '', 
-        createdAt: new Date()
+        createdAt: new Date(),
+        isComplete: false
       });
     }
   });
+
+
+  /* List */
 
   Template.list.helpers({
     tasks: function() {
@@ -19,9 +26,11 @@ if(Meteor.isClient) {
     }
   });
 
+
+  /* Task */
+
   Template.task.events({
     'change .ks-task-value': function(e) {
-      console.log('changing', e.target.value)
       Tasks.update(this._id, {
         $set: {
           text: e.target.value
@@ -31,6 +40,14 @@ if(Meteor.isClient) {
 
     'click .ks-task-remove': function() {
       Tasks.remove(this._id);
+    },
+
+    'click .ks-task-complete': function() {
+      Tasks.update(this._id, {
+        $set: {
+          isComplete: !this.isComplete
+        }
+      });
     }
   });
 

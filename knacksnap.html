@@ -8,8 +8,6 @@
 </body>
 
 
-
-
 <template name="toolbar">
   <header class="material-toolbar material-paper material-z-depth-2 ks-orange ks-toolbar ">
     <span class="material-content-add ks-toolbar-action-add"></span>
@@ -28,8 +26,9 @@
 
 
 <template name="task">
-  <div class="material-paper material-rounded material-z-depth-1 ks-red ks-task">
+  <div class="ks-red ks-task {{#if isComplete}} is-complete {{/if}}">
     <div class="ks-task-nav">
+      <span class="ks-task-complete {{#if isComplete}} material-toggle-check-box {{else}} material-toggle-check-box-outline-blank {{/if}}"></span>
       <span class="ks-task-remove material-action-delete"></span>
     </div>
     <div class="ks-task-value-wrapper">
