@@ -9,16 +9,16 @@
 
 
 <template name="toolbar">
-  <header class="material-toolbar material-paper material-z-depth-2 ks-orange ks-toolbar ">
-    <span class="material-content-add ks-toolbar-action-add"></span>
-    <div class="ks-toolbar-search-field" contenteditable>Knack Snap</div>
-  </header>
+  <header class="material-toolbar material-paper material-z-depth-2 ks-orange ks-toolbar"></header>
+  <nav class="ks-action-add">
+    <div class="material-content-add material-paper material-z-depth-2 ks-action-add-todo"></div>
+  </nav>
 </template>
 
 
 <template name="list">
   <div class="ks-list">
-    {{#each tasks}}
+    {{#each snaps}}
       {{> task}}
     {{/each}}
   </div>

@@ -1,4 +1,4 @@
-var Tasks = new Mongo.Collection("tasks");
+var Snaps = new Mongo.Collection("snaps");
 
 
 if(Meteor.isClient) {
@@ -9,7 +9,8 @@ if(Meteor.isClient) {
   Template.toolbar.events({
     "click .ks-toolbar-action-add": function(e) {
       e.stopPropagation();
-      Tasks.insert({
+      Snaps.insert({
+        type: 'task',
         text: '', 
         createdAt: new Date(),
         isComplete: false
@@ -21,8 +22,8 @@ if(Meteor.isClient) {
   /* List */
 
   Template.list.helpers({
-    tasks: function() {
-      return Tasks.find({}, {sort: {createdAt: -1}});
+    snaps: function() {
+      return Snaps.find({}, {sort: {createdAt: -1}});
     }
   });
 
@@ -31,7 +32,7 @@ if(Meteor.isClient) {
 
   Template.task.events({
     'change .ks-task-value': function(e) {
-      Tasks.update(this._id, {
+      Snaps.update(this._id, {
         $set: {
           text: e.target.value
         }
@@ -39,11 +40,11 @@ if(Meteor.isClient) {
     },
 
     'click .ks-task-remove': function() {
-      Tasks.remove(this._id);
+      Snaps.remove(this._id);
     },
 
     'click .ks-task-complete': function() {
-      Tasks.update(this._id, {
+      Snaps.update(this._id, {
         $set: {
           isComplete: !this.isComplete
         }

@@ -21,37 +21,27 @@
 
 
 .ks-toolbar {
-  // Override toolbar defaults to give 
-  // it variable height.
-  height: auto;
-  min-height:56px;
+}
+
+
+
+// Create button. Displayed in the bottom right.
+.ks-action-add {
+  position: absolute;
+  bottom:16px;
+  right: 16px;
+
   @media @device-medium {
-    height: auto;
-    min-height: 64px;
+    bottom:32px;
+    right:32px;
   }
 
-  // Add icon on the right
-  .ks-toolbar-action-add {
-    float:right;
-    vertical-align: top;
+  > div {
+    padding:16px;
     font-size:32px;
-    padding:12px 12px;
     color:white;
-  }
-
-  // Search field fills the space.
-  .ks-toolbar-search-field {
-    display:block;
-    box-sizing: border-box;
-    width:100%;
-    min-height:32px;
-    padding-top:11px;
-    padding-left:16px;
-    margin-right:64px;
-
-    font-size:24px;
-    line-height:32px;
-    color:white;
+    background-color:#ff5527;
+    border-radius:50%;
   }
 
 }
@@ -67,7 +57,7 @@
     padding:0 8px;
 
     > div {
-      max-width:640px;
+      max-width:768px;
       margin:8px auto;
       border:0;
       border-radius: 2px;
@@ -85,34 +75,17 @@
 }
 
 .ks-task-nav {
-  display:none;
-}
+  display:block;
+  position: absolute;
+  top:0;
+  right:12px;
 
-
-/* Hover reveal of task nav on desktop. */
-@media @device-large {  
-  .ks-task-nav {
-    display:block;
-    position: absolute;
-    top:0;
-    right:8px;
-
-    span {
-      display:inline-block;
-      padding:16px 8px;
-      font-size:24px;
-      color:white;
-      opacity:0;
-      cursor:pointer;
-    }
-  }
-
-  .ks-task:hover .ks-task-nav span {
-    opacity:.5;
-  }
-
-  .ks-task-nav span:hover {
-    opacity:1;
+  span {
+    display:inline-block;
+    padding:16px 4px;
+    font-size:24px;
+    color:white;
+    cursor:pointer;
   }
 }
 
@@ -128,6 +101,7 @@
   width:100%;
   padding:8px;
   border:0;
+  border-radius:0;
   margin:0;
 
   font-size:16px;
